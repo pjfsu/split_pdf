@@ -75,5 +75,61 @@ Pages:           4
 Pages:           35
 9. Using History Interactively.pdf
 Pages:           6
+user@debian:~/Documents/books/Bash_Reference_Manual$ cat $HOME/Documents/scripts/split_pdf/split_pdf.sh 
+split_pdf()
+{
+	local in_pdf_path="$(realpath "$(dirname "Bash_Reference_Manual.pdf")")"
+
+	echo -n 'splitting "1. Introduction.pdf" ... '
+	pdfseparate -f 7 -l 8 "Bash_Reference_Manual.pdf" "/tmp/%d_1._Introduction.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_1._Introduction.pdf) "${in_pdf_path}/1. Introduction.pdf"
+	echo 'done'
+
+	echo -n 'splitting "2. Definitions.pdf" ... '
+	pdfseparate -f 9 -l 10 "Bash_Reference_Manual.pdf" "/tmp/%d_2._Definitions.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_2._Definitions.pdf) "${in_pdf_path}/2. Definitions.pdf"
+	echo 'done'
+
+	echo -n 'splitting "3. Basic Shell Features.pdf" ... '
+	pdfseparate -f 11 -l 53 "Bash_Reference_Manual.pdf" "/tmp/%d_3._Basic_Shell_Features.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_3._Basic_Shell_Features.pdf) "${in_pdf_path}/3. Basic Shell Features.pdf"
+	echo 'done'
+
+	echo -n 'splitting "4. Shell Builtin Commands.pdf" ... '
+	pdfseparate -f 54 -l 83 "Bash_Reference_Manual.pdf" "/tmp/%d_4._Shell_Builtin_Commands.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_4._Shell_Builtin_Commands.pdf) "${in_pdf_path}/4. Shell Builtin Commands.pdf"
+	echo 'done'
+
+	echo -n 'splitting "5. Shell Variables.pdf" ... '
+	pdfseparate -f 84 -l 96 "Bash_Reference_Manual.pdf" "/tmp/%d_5._Shell_Variables.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_5._Shell_Variables.pdf) "${in_pdf_path}/5. Shell Variables.pdf"
+	echo 'done'
+
+	echo -n 'splitting "6. Bash Features.pdf" ... '
+	pdfseparate -f 97 -l 118 "Bash_Reference_Manual.pdf" "/tmp/%d_6._Bash_Features.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_6._Bash_Features.pdf) "${in_pdf_path}/6. Bash Features.pdf"
+	echo 'done'
+
+	echo -n 'splitting "7. Job Control.pdf" ... '
+	pdfseparate -f 119 -l 122 "Bash_Reference_Manual.pdf" "/tmp/%d_7._Job_Control.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_7._Job_Control.pdf) "${in_pdf_path}/7. Job Control.pdf"
+	echo 'done'
+
+	echo -n 'splitting "8. Command Line Editing.pdf" ... '
+	pdfseparate -f 123 -l 157 "Bash_Reference_Manual.pdf" "/tmp/%d_8._Command_Line_Editing.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_8._Command_Line_Editing.pdf) "${in_pdf_path}/8. Command Line Editing.pdf"
+	echo 'done'
+
+	echo -n 'splitting "9. Using History Interactively.pdf" ... '
+	pdfseparate -f 158 -l 163 "Bash_Reference_Manual.pdf" "/tmp/%d_9._Using_History_Interactively.pdf"
+	pdfunite $(ls -v /tmp/[0-9]*_9._Using_History_Interactively.pdf) "${in_pdf_path}/9. Using History Interactively.pdf"
+	echo 'done'
+
+	echo -n 'removing single pages ... '
+	rm /tmp/[0-9]*.pdf
+	echo 'done'
+
+	return 0
+}
 user@debian:~/Documents/books/Bash_Reference_Manual$ exit
 ```
