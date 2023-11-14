@@ -21,7 +21,7 @@ main.sh | entry point
 generate_split_pdf_script.awk | process the tsv file and generate split_pdf.sh
 split_pdf.sh | splitter
 
-main.sh Argument | Description
+Argument | Description
 --- | ---
 "${1}" | the PDF file to split
 "${2}" | the tabs-separated value file containing the page ranges to split (defined by the user)
