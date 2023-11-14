@@ -9,6 +9,7 @@ dirname (GNU coreutils)| 9.1
 realpath (GNU coreutils) | 9.1
 ls (GNU coreutils)) | 9.1
 rm (GNU coreutils) | 9.1
+cat (GNU coreutils) | 9.1
 GNU grep | 3.8
 pdfseparate | 22.12.0
 pdfunite | 22.12.0
