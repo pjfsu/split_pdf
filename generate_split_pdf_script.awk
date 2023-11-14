@@ -28,7 +28,7 @@ NR==1{
 	first_page=$2
 	last_page=$3
 
-	printf "\techo -n 'generating \"%s.pdf\" ... '\n", \
+	printf "\techo -n 'splitting \"%s.pdf\" ... '\n", \
 	       out_pdf_name
 	printf "\tpdfseparate -f %d -l %d \"%s\" \"%s\"\n", \
 		  first_page, \
@@ -42,7 +42,7 @@ NR==1{
 	print ""
 }
 END{
-	print "\techo -n 'deleting single pages ... '"
+	print "\techo -n 'removing single pages ... '"
 	print "\trm /tmp/[0-9]*.pdf"
 	print "\techo 'done'"
 	print ""
