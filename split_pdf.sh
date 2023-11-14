@@ -1,2 +1,1 @@
-# EMPTY ON PURPOSE
-# main.sh will generate this script
+# main.sh will generate this script (see README.md)
