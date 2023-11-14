@@ -15,7 +15,7 @@ pdfseparate | 22.12.0
 pdfunite | 22.12.0
 pdfinfo | 22.12.0
 
-Argument | Description
+main.sh Arguments | Description
 --- | ---
 "${1}" | the PDF file to split
 "${2}" | the tabs-separated value file containing the page ranges to split (defined by the user)
